@@ -1,0 +1,74 @@
+---
+title: "IPMA"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: lumen
+    # temas: default, cerulean, journal, flatly, darkly, readable, spacelab, 
+      # united, cosmo, lumen, paper, sandstone, simplex, yeti
+    orientation: rows
+    vertical_layout: fill
+    social: ["twitter", "facebook", "menu"]
+    source_code: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard) #front-end
+library(knitr)
+library(DT)
+library(rpivotTable)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(openintro)
+library(highcharter)
+library(ggvis)
+library(leaflet) #mapas
+library(sp)
+library(shiny) #interface c user
+library(zoo) #manipular datas
+library(dplyr)
+library(trend)
+```
+
+```{r load_data}
+load('Z:/PNAB/vendas-dia/vd_2021.Rdata')
+
+df = vd_2021 %>%
+  filter(EESPECIE %in% c('TDQ', 'SQR', 'SQM', 'OCC', 'OFJ', 'CTC', 'SQI')) %>% 
+  group_by(PORTO, EESPECIE) %>% 
+  summarise(QVENDA = sum(QVENDA))
+```
+
+Início {data-icon="fa-home"}
+================================
+
+Quantidade {data-navmenu="Dados" data-icon="fa-balance-scale"}
+
+
+Row
+--------------------------------
+
+### Portugal Continental 2003-2017
+```{r}
+valueBox(paste("Pesca do Cerco"),
+         color="steelblue")
+```
+
+
+Row {data-width=325}
+--------------------------------
+
+### Grafico sexy
+```{r}
+pal_1=c("steelblue","lightblue")
+
+p1=plot_ly(data = df, x= ~PORTO, y=~QVENDA, type="bar",
+           marker=list(color=pal_1)) %>%
+  layout(xaxis=list(title="Embarcações"), 
+         yaxis=list(title="Quilos"))
+p1
+```
+
+### Boneco
+![](imgs/gc.jpg){ width=20% }
