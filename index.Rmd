@@ -8,6 +8,7 @@ output:
     orientation: rows
     vertical_layout: fill
     social: ["twitter", "facebook", "menu"]
+    name: 'IPMA'
     source_code: embed
 runtime: shiny
 ---
@@ -45,8 +46,12 @@ Início {data-icon="fa-home"}
 
 Quantidade {data-navmenu="Dados" data-icon="fa-balance-scale"}
 
+Row { data-height=20 }
+--------------------------------
 
-Row
+Devemos acrescentar 'runtime:shiny' para correr imediatamente a app; para fazer knit e produzir os html necessarios para o github pages, basta tirar essa linha.
+
+Row 
 --------------------------------
 
 ### Portugal Continental 2003-2017
