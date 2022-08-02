@@ -25,7 +25,7 @@ window.FlexDashboardComponents = [];
 [{"icon":"fa-twitter"},{"icon":"fa-facebook"},{"icon":"fa-share-alt","items":[{"title":"Twitter","icon":"fa-twitter"},{"title":"Facebook","icon":"fa-facebook"},{"title":"Google+","icon":"fa-google-plus"},{"title":"LinkedIn","icon":"fa-linkedin"},{"title":"Pinterest","icon":"fa-pinterest"}]},{"title":"Source Code","icon":"fa-code","href":"source_embed","align":"right"}]
 </script>
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -47,13 +47,9 @@ window.FlexDashboardComponents = [];
 <script src="site_libs/featherlight-1.3.5/featherlight.min.js"></script>
 <link href="site_libs/prism-1.4.1/prism.css" rel="stylesheet" />
 <script src="site_libs/prism-1.4.1/prism.js"></script>
-<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<script src="site_libs/plotly-binding-4.9.4.1/plotly.js"></script>
-<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
-<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
-<link href="site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+<link href="shared/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="shared/selectize/js/selectize.min.js"></script>
+<script src="shared/selectize/accessibility/js/selectize-plugin-a11y.min.js"></script>
 <style type="text/css">
 
 /*
@@ -2669,21 +2665,54 @@ basta tirar essa linha.</p>
 <p><span class="value-output" data-color="steelblue">Pesca do Cerco</span></p>
 </div>
 </div>
+<div id="column" class="section level2 sidebar">
+<h2 class="sidebar">Column</h2>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="EESPECIE-label" for="EESPECIE">Filtro por Especie</label>
+<div>
+<select id="EESPECIE"><option value="none" selected>none</option>
+<option value="SQR">SQR</option>
+<option value="OCC">OCC</option>
+<option value="OFJ">OFJ</option>
+<option value="CTC">CTC</option></select>
+<script type="application/json" data-for="EESPECIE" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="x-label" for="x">eixo dos xx</label>
+<div>
+<select id="x"><option value="PORTO">PORTO</option>
+<option value="EESPECIE">EESPECIE</option>
+<option value="QVENDA">QVENDA</option></select>
+<script type="application/json" data-for="x" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="fill-label" for="fill">Cores munitas</label>
+<div>
+<select id="fill"><option value="PORTO">PORTO</option>
+<option value="EESPECIE">EESPECIE</option>
+<option value="QVENDA">QVENDA</option></select>
+<script type="application/json" data-for="fill" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</div>
 <div id="row-2" class="section level2" data-width="325">
 <h2>Row</h2>
-<div id="boneco" class="section level3">
-<h3>Boneco</h3>
-<p><img src="imgs/gc.jpg" style="width:20.0%" /></p>
-</div>
 <div id="grafico-sexy" class="section level3">
 <h3>Grafico sexy</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<div id="htmlwidget-1ce3787efc11c69d0dbc" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1ce3787efc11c69d0dbc">{"x":{"visdat":{"336c19e5506f":["function () ","plotlyVisDat"]},"cur_data":"336c19e5506f","attrs":{"336c19e5506f":{"x":{},"y":{},"marker":{"color":["steelblue","lightblue"]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Embarcações","type":"category","categoryorder":"array","categoryarray":["VIANA DO CASTELO","CAMINHA","ESPOSENDE","V. PRAIA DA ANCORA","CASTELO DO NEIVA","FAO","POVOA DO VARZIM","V. CHA","V. CONDE","MATOSINHOS","ANJEIRAS","AFURADA","AGUDA","ESPINHO","AVEIRO","VAGUEIRA","TORREIRA","MIRA","FURADOURO","FIGUEIRA DA FOZ","NAZARE","PENICHE","FOZ DO ARELHO","VIEIRA DE LEIRIA","CASCAIS","SESIMBRA","COSTA DA CAPARICA","TRAFARIA","FONTE DA TELHA","SETUBAL","CARRASQUEIRA","SINES","V. NOVA DE MILFONTES","AZENHA DO MAR","ZAMBUJEIRA","LAGOS","SAGRES","PORTIMAO","ALBUFEIRA","OLHAO","FUZETA","QUARTEIRA","SANTA LUZIA","VRSA","FUNCHAL","PAUL DO MAR","PORTO DO MONIZ","CANICAL","SANTA CRUZ","PORTO SANTO","V. PORTO","PONTA DELGADA (DOCA)","RABO DE PEIXE","SAO MATEUS","PRAIA DA VITORIA","PRAIA DA GRACIOSA","VELAS","MADALENA DO PICO","HORTA (SANTA CRUZ)","CORVO","CAIS DO BICO"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Quilos"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["VIANA DO CASTELO","VIANA DO CASTELO","VIANA DO CASTELO","VIANA DO CASTELO","CAMINHA","CAMINHA","ESPOSENDE","ESPOSENDE","ESPOSENDE","V. PRAIA DA ANCORA","V. PRAIA DA ANCORA","V. PRAIA DA ANCORA","V. PRAIA DA ANCORA","CASTELO DO NEIVA","CASTELO DO NEIVA","CASTELO DO NEIVA","FAO","FAO","POVOA DO VARZIM","POVOA DO VARZIM","POVOA DO VARZIM","POVOA DO VARZIM","V. CHA","V. CONDE","V. CONDE","V. CONDE","V. CONDE","MATOSINHOS","MATOSINHOS","MATOSINHOS","MATOSINHOS","ANJEIRAS","ANJEIRAS","AFURADA","AFURADA","AGUDA","AGUDA","ESPINHO","AVEIRO","AVEIRO","AVEIRO","AVEIRO","VAGUEIRA","VAGUEIRA","TORREIRA","TORREIRA","MIRA","MIRA","FURADOURO","FURADOURO","FIGUEIRA DA FOZ","FIGUEIRA DA FOZ","FIGUEIRA DA FOZ","FIGUEIRA DA FOZ","NAZARE","NAZARE","NAZARE","NAZARE","PENICHE","PENICHE","PENICHE","PENICHE","FOZ DO ARELHO","SESIMBRA","SESIMBRA","SESIMBRA","SESIMBRA","COSTA DA CAPARICA","COSTA DA CAPARICA","COSTA DA CAPARICA","TRAFARIA","TRAFARIA","TRAFARIA","FONTE DA TELHA","FONTE DA TELHA","FONTE DA TELHA","SETUBAL","SETUBAL","SETUBAL","SETUBAL","CARRASQUEIRA","CARRASQUEIRA","SINES","SINES","SINES","SINES","V. NOVA DE MILFONTES","V. NOVA DE MILFONTES","V. NOVA DE MILFONTES","AZENHA DO MAR","ZAMBUJEIRA","ZAMBUJEIRA","ZAMBUJEIRA","LAGOS","LAGOS","LAGOS","SAGRES","SAGRES","SAGRES","PORTIMAO","PORTIMAO","PORTIMAO","PORTIMAO","ALBUFEIRA","ALBUFEIRA","ALBUFEIRA","OLHAO","OLHAO","OLHAO","OLHAO","FUZETA","FUZETA","FUZETA","QUARTEIRA","QUARTEIRA","QUARTEIRA","QUARTEIRA","SANTA LUZIA","VRSA","VRSA","VRSA","VRSA","FUNCHAL","FUNCHAL","CANICAL","SANTA CRUZ","PONTA DELGADA (DOCA)","RABO DE PEIXE","SAO MATEUS","PRAIA DA VITORIA","MADALENA DO PICO","HORTA (SANTA CRUZ)","CORVO","CAIS DO BICO"],"y":[53.6,126143,4.9,117.1,2427.9,57,24.6,27865.7,32.3,114.3,9361,210,125.9,64.3,234409.9,6.5,4033.3,0.5,69.1,107149.4,2085.1,333.3,6423.5,0.7,11084.6,5.2,67.9,8005.8,181090.2,343968,5713,12981,15.5,466,312.5,1573,10,40,214109.3,136643.1,227106.9,229483.3,148,21.9,36.5,105777.1,2126.2,212.7,358.9,7.4,86419.8,57138.7,668252.3,11299.2,41997,80652.4,1201451.8,8738.6,42276.1,327273.8,94610.5,29828.6,63,2513.5,380298,9051.6,56943.9,4243.7,249036.9,51615.1,44.2,84745.2,14925.6,3896.3,30544,26006.4,531.5,66258.2,273.6,133435.9,6518.6,30767.4,1282.8,208987.7,1053.8,15240.6,1.4,87872.1,412.1,668,22.4,15604.5,8.3,1529.3,218149.9,14077.2,8143.3,339755.8,7582.9,2915.2,670878.5,450.2,39383.5,3.3,279865.4,25.1,7358.8,209281.2,325.9,117281.1,106,430139.7,201.4,30813.5,409730.9,13,112409.4,229245.4,397.5,2666.4,3257.3,9794.6,275.3,2.6,134,66.7,7570.4,712.8,484.52,2222.1,596.75,37.6,4.1,54086.4],"marker":{"color":["steelblue","lightblue"],"line":{"color":"rgba(31,119,180,1)"}},"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p><div id="out262c09cc4c43a303" class="shiny-plot-output" style="width:100%;height:400px;"></div></p>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
 </div>
-<div id="boneco-1" class="section level3">
+</div>
+<div id="boneco" class="section level3">
 <h3>Boneco</h3>
 <p><img src="imgs/gc.jpg" style="width:20.0%" /></p>
 </div>
@@ -2771,22 +2800,59 @@ valueBox(paste("Pesca do Cerco"),
          color="steelblue")
 ```
 
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+selectInput('EESPECIE',
+            label = 'Filtro por Especie',
+            choices = c('none',as.character(unique(df$EESPECIE))))
+selectInput('x',
+            label = 'eixo dos xx',
+            choices = names(df),
+            selected = 'lota')
+selectInput('fill',
+            label = 'Cores munitas',
+            choices = names(df),
+            selected = 'arte_eu')
+
+```
+
 
 Row {data-width=325}
 --------------------------------
 
-### Boneco
-![](imgs/gc.jpg){ width=20% }
-
 ### Grafico sexy
-```{r}
-pal_1=c("steelblue","lightblue")
 
-p1=plot_ly(data = df, x= ~PORTO, y=~QVENDA, type="bar",
-           marker=list(color=pal_1)) %>%
-  layout(xaxis=list(title="Embarcações"), 
-         yaxis=list(title="Quilos"))
-p1
+```{r}
+renderPlot({
+p = df %>%
+  filter(case_when(
+  input$EESPECIE == 'none' ~ EESPECIE %in% EESPECIE,
+  T ~ EESPECIE %in% input$EESPECIE)) %>%
+  #filter(EESPECIE  %in%  input$EESPECIE) %>%
+  # group_by_(input$x, input$fill) %>% #notar uso da sintaxe 'group_by_' para permitir ingerir o input
+  # summarise(QVENDA = sum(QVENDA)) %>%
+  ggplot() + 
+  geom_bar(aes_string(x = input$x,
+                      y = 'QVENDA',
+                      fill = input$fill),
+           stat = 'identity') + 
+  theme_light() + 
+  theme(legend.position = 'left')
+p
+})
+```
+
+```{r}
+
+# pal_1=c("steelblue","lightblue")
+# 
+# p1=plot_ly(data = df, x= ~PORTO, y=~QVENDA, type="bar",
+#            marker=list(color=pal_1)) %>%
+#   layout(xaxis=list(title="Embarcações"), 
+#          yaxis=list(title="Quilos"))
+# p1
 ```
 
 ### Boneco

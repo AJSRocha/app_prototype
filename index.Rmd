@@ -60,22 +60,59 @@ valueBox(paste("Pesca do Cerco"),
          color="steelblue")
 ```
 
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+selectInput('EESPECIE',
+            label = 'Filtro por Especie',
+            choices = c('none',as.character(unique(df$EESPECIE))))
+selectInput('x',
+            label = 'eixo dos xx',
+            choices = names(df),
+            selected = 'lota')
+selectInput('fill',
+            label = 'Cores munitas',
+            choices = names(df),
+            selected = 'arte_eu')
+
+```
+
 
 Row {data-width=325}
 --------------------------------
 
-### Boneco
-![](imgs/gc.jpg){ width=20% }
-
 ### Grafico sexy
-```{r}
-pal_1=c("steelblue","lightblue")
 
-p1=plot_ly(data = df, x= ~PORTO, y=~QVENDA, type="bar",
-           marker=list(color=pal_1)) %>%
-  layout(xaxis=list(title="Embarcações"), 
-         yaxis=list(title="Quilos"))
-p1
+```{r}
+renderPlot({
+p = df %>%
+  filter(case_when(
+  input$EESPECIE == 'none' ~ EESPECIE %in% EESPECIE,
+  T ~ EESPECIE %in% input$EESPECIE)) %>%
+  #filter(EESPECIE  %in%  input$EESPECIE) %>%
+  # group_by_(input$x, input$fill) %>% #notar uso da sintaxe 'group_by_' para permitir ingerir o input
+  # summarise(QVENDA = sum(QVENDA)) %>%
+  ggplot() + 
+  geom_bar(aes_string(x = input$x,
+                      y = 'QVENDA',
+                      fill = input$fill),
+           stat = 'identity') + 
+  theme_light() + 
+  theme(legend.position = 'left')
+p
+})
+```
+
+```{r}
+
+# pal_1=c("steelblue","lightblue")
+# 
+# p1=plot_ly(data = df, x= ~PORTO, y=~QVENDA, type="bar",
+#            marker=list(color=pal_1)) %>%
+#   layout(xaxis=list(title="Embarcações"), 
+#          yaxis=list(title="Quilos"))
+# p1
 ```
 
 ### Boneco
